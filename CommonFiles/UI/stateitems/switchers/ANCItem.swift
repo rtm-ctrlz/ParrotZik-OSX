@@ -1,22 +1,23 @@
 //
-//  VersionItem.swift
+//  ANCItem.swift
 //  ParrotZik
 //
 //  Created by Внештатный командир земли on 18/02/15.
 //  Copyright (c) 2015 Внештатный командир земли. All rights reserved.
 //
 
-
 import Cocoa
 
-class VersionItem: StateItem {
-    var apiGet:String = "/api/software/version/get"
-    var path: String = "/answer/software/@version"
+class ANCItem: StateItem {
+    var apiGet:String = "/api/audio/noise_cancellation/enabled/get"
+    var apiSet:String = "/api/audio/noise_cancellation/enabled"
+    var _inSetMode = false
+    var path: String = "/answer/audio/noise_cancellation/@enabled"
     var value: String? = nil
-    var label: String = "Version"
+    var label: String = "ANC"
     
     var menuItems: (val: NSMenuItem, sep: NSMenuItem) = (
-        val: NSMenuItem(title: "", action: "", keyEquivalent: ""),
+        val: NSMenuItem(title: "", action: "stateMenuItemClick:", keyEquivalent: ""),
         sep: NSMenuItem.separatorItem()
     )
     
@@ -26,7 +27,7 @@ class VersionItem: StateItem {
     }
     
     func getDebugName() -> String {
-        return "VersionItem"
+        return "AncItem"
     }
     
     func getMenuItems() -> [NSMenuItem] {
@@ -37,8 +38,8 @@ class VersionItem: StateItem {
             self.menuItems.sep.menu?.removeItem(self.menuItems.sep)
         }
         return [
-            self.menuItems.val,
-            self.menuItems.sep
+            self.menuItems.val
+            ,self.menuItems.sep
         ]
     }
     
@@ -51,17 +52,24 @@ class VersionItem: StateItem {
         self.menuItems.sep.hidden = true
     }
     func show() {
-        
         self.menuItems.val.hidden = false
         self.menuItems.sep.hidden = false
     }
     
     func getApiCall() -> NSData {
+        if self._inSetMode {
+            var f:Bool = self.value == "true"
+            return ParrotZikRequest.set(self.apiSet, bArg: !f )!
+        }
         return ParrotZikRequest.call(self.apiGet)!
     }
     func parseValues(data:NSData) {
-        self.value = ParrotZikResponse.getValue(Data: data, XPath: self.path)
-        self.formatLabel()
+        if self._inSetMode {
+            self._inSetMode = false
+        } else {
+            self.value = ParrotZikResponse.getValue(Data: data, XPath: self.path)
+            self.formatLabel()
+        }
     }
     
     func getNotityRegistrations() -> [(path:String, handler: (NSData,ParrotRequestor) -> Void)] {
@@ -69,11 +77,29 @@ class VersionItem: StateItem {
     }
     
     func formatLabel() {
+        self.menuItems.val.enabled = true
         if self.value == nil {
+            self.menuItems.val.state = NSOffState
             self.hide()
         } else {
+            self.menuItems.val.state = NSOffState
+            if self.value == "true" {
+                self.menuItems.val.state = NSOnState
+            } else {
+                self.menuItems.val.state = NSOffState
+            }
             self.show()
-            self.menuItems.val.title = self.label + ": " + self.value!
         }
+    }
+    
+    func handleItemClick(state:ParrotState, menuItem:NSMenuItem) -> Bool {
+        if self.menuItems.val.isEqual(menuItem) {
+            self._inSetMode = true
+            self.menuItems.val.enabled = false
+            state.req!.pushItem(self)
+            state.req!.pushItem(self)
+            return true
+        }
+        return false
     }
 }

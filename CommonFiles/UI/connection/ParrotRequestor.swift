@@ -31,6 +31,7 @@ import Foundation
     
     func clean() {
         self.updateItems.removeAll(keepCapacity: false)
+        self.updateItems = [StateItem]()
     }
     
     func pushItem(item:StateItem) {
@@ -45,6 +46,7 @@ import Foundation
         
         var sem  = dispatch_semaphore_create(0)
         while self.con.isConnected && self.updateItems.count > 0  {
+//            self.updateItems.first
             upitem = self.updateItems.removeAtIndex(0)
             println("requesting \(upitem.getDebugName())")
             self.con.man.dataHandler().send(data: upitem.getApiCall(), callback: {

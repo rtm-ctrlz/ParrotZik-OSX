@@ -111,13 +111,17 @@ class BatteryItem: StateItem {
         }
     }
     
+    func handleItemClick(state:ParrotState, menuItem:NSMenuItem) -> Bool {
+        return false
+    }
+    
     func updateStatusItem(item:NSStatusItem) {
         if self.values.state == nil {
             item.title = "Connected..."
         } else {
             if self.values.state == "in_use" {
                 if self.values.level == nil || self.values.level == "" {
-                    item.title = "..."
+                    item.title = "On battery..."
                 } else {
                     item.title = self.values.level! + "%"
                 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5999C4521A94DE8C009EB28E /* ANCItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5999C4511A94DE8C009EB28E /* ANCItem.swift */; };
 		59B0810A1A935EA500CB57ED /* StatusMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B081091A935EA500CB57ED /* StatusMenu.xib */; };
 		59F2ECCB1A94B63F002CBB32 /* zik-audio-headset.png in Resources */ = {isa = PBXBuildFile; fileRef = 59F2ECCA1A94B63F002CBB32 /* zik-audio-headset.png */; };
 		59F2ED511A94C7DE002CBB32 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2ED501A94C7DE002CBB32 /* main.swift */; };
@@ -49,12 +50,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5999C4511A94DE8C009EB28E /* ANCItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANCItem.swift; sourceTree = "<group>"; };
 		59B080BF1A935BBD00CB57ED /* ParrotZik.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ParrotZik.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59B080C31A935BBD00CB57ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		59B080C41A935BBD00CB57ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59B081091A935EA500CB57ED /* StatusMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatusMenu.xib; path = "Supporting Files/StatusMenu.xib"; sourceTree = "<group>"; };
 		59F2ECCA1A94B63F002CBB32 /* zik-audio-headset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zik-audio-headset.png"; path = "Supporting Files/images/zik-audio-headset.png"; sourceTree = "<group>"; };
-		59F2ED4E1A94C7DE002CBB32 /* ParrotZikCli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = ParrotZikCli; path = CliTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		59F2ED4E1A94C7DE002CBB32 /* CliTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CliTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F2ED501A94C7DE002CBB32 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		59F2ED7F1A94CA67002CBB32 /* ParrotChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotChannel.swift; sourceTree = "<group>"; };
 		59F2ED801A94CA67002CBB32 /* ParrotCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotCommunicator.swift; sourceTree = "<group>"; };
@@ -67,9 +69,9 @@
 		59F2ED8B1A94CA67002CBB32 /* ParrotConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotConnection.swift; sourceTree = "<group>"; };
 		59F2ED8C1A94CA67002CBB32 /* ParrotRequestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotRequestor.swift; sourceTree = "<group>"; };
 		59F2ED8D1A94CA67002CBB32 /* ParrotState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotState.swift; sourceTree = "<group>"; };
-		59F2ED8F1A94CA67002CBB32 /* BatteryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryItem.swift; sourceTree = "<group>"; };
+		59F2ED8F1A94CA67002CBB32 /* BatteryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BatteryItem.swift; path = ../info/BatteryItem.swift; sourceTree = "<group>"; };
 		59F2EDC61A94D609002CBB32 /* StateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateItem.swift; sourceTree = "<group>"; };
-		59F2EDC81A94D61B002CBB32 /* NameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameItem.swift; sourceTree = "<group>"; };
+		59F2EDC81A94D61B002CBB32 /* NameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameItem.swift; path = ../info/NameItem.swift; sourceTree = "<group>"; };
 		59F2EDCA1A94D7E4002CBB32 /* VersionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +93,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5999C4531A94E5AF009EB28E /* info */ = {
+			isa = PBXGroup;
+			children = (
+				59F2ED8F1A94CA67002CBB32 /* BatteryItem.swift */,
+				59F2EDC81A94D61B002CBB32 /* NameItem.swift */,
+				59F2EDCA1A94D7E4002CBB32 /* VersionItem.swift */,
+			);
+			path = info;
+			sourceTree = "<group>";
+		};
+		5999C4541A94E5EC009EB28E /* switchers */ = {
+			isa = PBXGroup;
+			children = (
+				5999C4511A94DE8C009EB28E /* ANCItem.swift */,
+			);
+			path = switchers;
+			sourceTree = "<group>";
+		};
 		59B080B61A935BBD00CB57ED = {
 			isa = PBXGroup;
 			children = (
@@ -105,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				59B080BF1A935BBD00CB57ED /* ParrotZik.app */,
-				59F2ED4E1A94C7DE002CBB32 /* ParrotZikCli */,
+				59F2ED4E1A94C7DE002CBB32 /* CliTest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,10 +227,9 @@
 		59F2ED8E1A94CA67002CBB32 /* stateitems */ = {
 			isa = PBXGroup;
 			children = (
-				59F2ED8F1A94CA67002CBB32 /* BatteryItem.swift */,
+				5999C4531A94E5AF009EB28E /* info */,
 				59F2EDC61A94D609002CBB32 /* StateItem.swift */,
-				59F2EDC81A94D61B002CBB32 /* NameItem.swift */,
-				59F2EDCA1A94D7E4002CBB32 /* VersionItem.swift */,
+				5999C4541A94E5EC009EB28E /* switchers */,
 			);
 			path = stateitems;
 			sourceTree = "<group>";
@@ -249,7 +268,7 @@
 			);
 			name = CliTest;
 			productName = ParrotZikCli;
-			productReference = 59F2ED4E1A94C7DE002CBB32 /* ParrotZikCli */;
+			productReference = 59F2ED4E1A94C7DE002CBB32 /* CliTest */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -317,6 +336,7 @@
 				59F2EDA21A94CA86002CBB32 /* ParrotRequest.swift in Sources */,
 				59F2EDA31A94CA86002CBB32 /* ParrotResponse.swift in Sources */,
 				59F2EDA41A94CA86002CBB32 /* ParrotConnection.swift in Sources */,
+				5999C4521A94DE8C009EB28E /* ANCItem.swift in Sources */,
 				59F2EDA51A94CA86002CBB32 /* ParrotRequestor.swift in Sources */,
 				59F2EDA61A94CA86002CBB32 /* ParrotState.swift in Sources */,
 				59F2EDA71A94CA86002CBB32 /* BatteryItem.swift in Sources */,

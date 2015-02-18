@@ -44,6 +44,7 @@ class ParrotConnection: ParrotConnectionHook {
     }
     func channelOpened() {
         self.doHello()
+        interruptwait()
         println("COP")
     }
     func channelClosed() {
@@ -89,6 +90,6 @@ class ParrotConnection: ParrotConnectionHook {
             println("HELLO HERE!")
             interruptwait()
         })
-        return waituntil({return self.helloHere}, timeout: 20)
+        return waituntil({return self.helloHere}, timeout: 3)
     }
 }

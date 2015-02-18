@@ -14,13 +14,10 @@ class NameItem: StateItem {
     var value: String? = nil
     var label: String = "Name"
     
-    var menuItems: (name: NSMenuItem, sep: NSMenuItem) = (
-        name: NSMenuItem(title: "", action: "", keyEquivalent: ""),
-        sep: NSMenuItem.separatorItem()
-    )
+    var menuItem = NSMenuItem(title: "", action: "", keyEquivalent: "")
 
     init() {
-        self.menuItems.name.title = self.label
+        self.menuItem.title = self.label
         self.formatLabel()
     }
     
@@ -29,15 +26,11 @@ class NameItem: StateItem {
     }
     
     func getMenuItems() -> [NSMenuItem] {
-        if self.menuItems.name.menu != nil {
-            self.menuItems.name.menu?.removeItem(self.menuItems.name)
-        }
-        if self.menuItems.sep.menu != nil {
-            self.menuItems.sep.menu?.removeItem(self.menuItems.sep)
+        if self.menuItem.menu != nil {
+            self.menuItem.menu?.removeItem(self.menuItem)
         }
         return [
-            self.menuItems.name
-//            ,self.menuItems.sep
+            self.menuItem
         ]
     }
     
@@ -46,12 +39,10 @@ class NameItem: StateItem {
         self.formatLabel()
     }
     func hide() {
-        self.menuItems.name.hidden = true
-        self.menuItems.sep.hidden = true
+        self.menuItem.hidden = true
     }
     func show() {
-        self.menuItems.name.hidden = false
-        self.menuItems.sep.hidden = false
+        self.menuItem.hidden = false
     }
     
     func getApiCall() -> NSData {
@@ -71,7 +62,11 @@ class NameItem: StateItem {
             self.hide()
         } else {
             self.show()
-            self.menuItems.name.title = self.label + ": " + self.value!
+            self.menuItem.title = self.label + ": " + self.value!
         }
+    }
+    
+    func handleItemClick(state:ParrotState, menuItem:NSMenuItem) -> Bool {
+        return false
     }
 }

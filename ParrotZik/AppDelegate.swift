@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
-        self.con.start()
+
         self.updateStatusItem()
         
         self.statusItem.menu!.removeAllItems()
@@ -42,6 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         
         self.statusItem.menu!.addItem(NSMenuItem.separatorItem())
         self.statusItem.menu!.addItem(NSMenuItem(title: "Quit", action: "statusMenuItemQuit_Action:", keyEquivalent: ""))
+        self.con.start()
     }
     
     func updateStatusItem() {
@@ -74,6 +75,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     
     func statusMenuItemQuit_Action(sender: NSMenuItem) {
         NSApplication.sharedApplication().terminate(self)
+    }
+    func stateMenuItemClick(sender: NSMenuItem) {
+        self.pstate.forwardMenuItemClick(sender)
     }
     
     
