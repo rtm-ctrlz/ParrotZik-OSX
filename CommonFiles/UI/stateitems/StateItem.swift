@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+protocol StateItem {
+    func getDebugName() -> String
+    func getApiCall() -> NSData
+    func parseValues(data:NSData)
+    func getNotityRegistrations() -> [(path:String, handler: (NSData,ParrotRequestor) -> Void)]
+}

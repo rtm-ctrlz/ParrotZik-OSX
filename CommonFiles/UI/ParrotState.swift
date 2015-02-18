@@ -9,14 +9,14 @@
 import Cocoa
 
 class ParrotState {
-    var bat: BatteryItem
+    var bat: BatteryItem = BatteryItem()
+    var nam: NameItem = NameItem()
     var item: NSStatusItem
     
     var req:ParrotRequestor? = nil
     
     init(item: NSStatusItem) {
         self.item = item
-        self.bat = BatteryItem()
         self.bat.updateCB = {
             self.bat.updateStatusItem(self.item)
         }
@@ -31,6 +31,7 @@ class ParrotState {
     func getMenuItems() -> [NSMenuItem] {
         var result: [NSMenuItem] = [NSMenuItem]()
         result.extend(self.bat.getMenuItems())
+        result.extend(self.nam.getMenuItems())
         return result
     }
     
@@ -39,10 +40,13 @@ class ParrotState {
             self.req = req
         }
         self.bat.clear()
+        self.nam.clear()
         self.req!.pushItem(self.bat)
+        self.req!.pushItem(self.nam)
     }
     func onDisconnect() {
         self.bat.clear()
+        self.nam.clear()
         self.req!.clean()
     }
     

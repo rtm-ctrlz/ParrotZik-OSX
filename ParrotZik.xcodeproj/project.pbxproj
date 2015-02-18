@@ -31,6 +31,8 @@
 		59F2EDAE1A94CA94002CBB32 /* macutil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2ED851A94CA67002CBB32 /* macutil.swift */; };
 		59F2EDAF1A94CA94002CBB32 /* ParrotRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2ED871A94CA67002CBB32 /* ParrotRequest.swift */; };
 		59F2EDB01A94CA94002CBB32 /* ParrotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2ED881A94CA67002CBB32 /* ParrotResponse.swift */; };
+		59F2EDC71A94D609002CBB32 /* StateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2EDC61A94D609002CBB32 /* StateItem.swift */; };
+		59F2EDC91A94D61B002CBB32 /* NameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2EDC81A94D61B002CBB32 /* NameItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,7 +53,7 @@
 		59B080C41A935BBD00CB57ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59B081091A935EA500CB57ED /* StatusMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StatusMenu.xib; path = "Supporting Files/StatusMenu.xib"; sourceTree = "<group>"; };
 		59F2ECCA1A94B63F002CBB32 /* zik-audio-headset.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zik-audio-headset.png"; path = "Supporting Files/images/zik-audio-headset.png"; sourceTree = "<group>"; };
-		59F2ED4E1A94C7DE002CBB32 /* ParrotZikCli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ParrotZikCli; sourceTree = BUILT_PRODUCTS_DIR; };
+		59F2ED4E1A94C7DE002CBB32 /* ParrotZikCli */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = ParrotZikCli; path = CliTest; sourceTree = BUILT_PRODUCTS_DIR; };
 		59F2ED501A94C7DE002CBB32 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		59F2ED7F1A94CA67002CBB32 /* ParrotChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotChannel.swift; sourceTree = "<group>"; };
 		59F2ED801A94CA67002CBB32 /* ParrotCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotCommunicator.swift; sourceTree = "<group>"; };
@@ -65,6 +67,8 @@
 		59F2ED8C1A94CA67002CBB32 /* ParrotRequestor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotRequestor.swift; sourceTree = "<group>"; };
 		59F2ED8D1A94CA67002CBB32 /* ParrotState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParrotState.swift; sourceTree = "<group>"; };
 		59F2ED8F1A94CA67002CBB32 /* BatteryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryItem.swift; sourceTree = "<group>"; };
+		59F2EDC61A94D609002CBB32 /* StateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateItem.swift; sourceTree = "<group>"; };
+		59F2EDC81A94D61B002CBB32 /* NameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				59F2ED8F1A94CA67002CBB32 /* BatteryItem.swift */,
+				59F2EDC61A94D609002CBB32 /* StateItem.swift */,
+				59F2EDC81A94D61B002CBB32 /* NameItem.swift */,
 			);
 			path = stateitems;
 			sourceTree = "<group>";
@@ -296,12 +302,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59F2EDC91A94D61B002CBB32 /* NameItem.swift in Sources */,
 				59F2ED9C1A94CA86002CBB32 /* ParrotChannel.swift in Sources */,
 				59F2ED9D1A94CA86002CBB32 /* ParrotCommunicator.swift in Sources */,
 				59F2ED9E1A94CA86002CBB32 /* ParrotDataHandler.swift in Sources */,
 				59F2ED9F1A94CA86002CBB32 /* ParrotManager.swift in Sources */,
 				59F2EDA01A94CA86002CBB32 /* ParrotSearcher.swift in Sources */,
 				59F2EDA11A94CA86002CBB32 /* macutil.swift in Sources */,
+				59F2EDC71A94D609002CBB32 /* StateItem.swift in Sources */,
 				59F2EDA21A94CA86002CBB32 /* ParrotRequest.swift in Sources */,
 				59F2EDA31A94CA86002CBB32 /* ParrotResponse.swift in Sources */,
 				59F2EDA41A94CA86002CBB32 /* ParrotConnection.swift in Sources */,

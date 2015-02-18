@@ -8,14 +8,6 @@
 
 import Cocoa
 
-protocol StateItem {
-    func getDebugName() -> String
-    func getApiCall() -> NSData
-    func parseValues(data:NSData)
-    func getNotityRegistrations() -> [(path:String, handler: (NSData,ParrotRequestor) -> Void)]
-}
-
-
 class BatteryItem: StateItem {
     var apiGet:String = "/api/system/battery/get"
     var paths: (level: String, state: String) = (level: "/answer/system/battery/@level", state: "/answer/system/battery/@state")
