@@ -58,7 +58,7 @@ class VersionItem: StateItem {
     func getApiCall() -> NSData {
         return ParrotZikRequest.call(self.apiGet)!
     }
-    func parseValues(data:NSData) {
+    func parseValues(req: ParrotRequestor, data:NSData) {
         self.value = ParrotZikResponse.getValue(Data: data, XPath: self.path)
         self.formatLabel()
     }

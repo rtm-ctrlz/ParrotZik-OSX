@@ -70,7 +70,7 @@ class BatteryItem: StateItem {
     func getApiCall() -> NSData {
         return ParrotZikRequest.call(self.apiGet)!
     }
-    func parseValues(data:NSData) {
+    func parseValues(req: ParrotRequestor, data:NSData) {
         self.values.level = ParrotZikResponse.getValue(Data: data, XPath: self.paths.level)
         self.values.state = ParrotZikResponse.getValue(Data: data, XPath: self.paths.state)
         self.updateCB()

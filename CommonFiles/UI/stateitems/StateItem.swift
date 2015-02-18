@@ -11,7 +11,7 @@ import Cocoa
 protocol StateItem {
     func getDebugName() -> String
     func getApiCall() -> NSData
-    func parseValues(data:NSData)
+    func parseValues(req: ParrotRequestor, data:NSData)
     func getNotityRegistrations() -> [(path:String, handler: (NSData,ParrotRequestor) -> Void)]
     func handleItemClick(state:ParrotState, menuItem:NSMenuItem) -> Bool
 }

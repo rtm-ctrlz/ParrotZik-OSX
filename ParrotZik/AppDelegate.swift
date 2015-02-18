@@ -70,7 +70,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     }
     
     func statusMenuItemAbout_Action(sender: NSMenuItem) {
-        NSWorkspace.sharedWorkspace().openURL(NSURL(string: "https://github.com/rtm-ctrlz/swift-ParrotZik-OSX")!)
+        NSWorkspace.sharedWorkspace().openURL(NSURL(string: "https://github.com/rtm-ctrlz/ParrotZik-OSX")!)
     }
     
     func statusMenuItemQuit_Action(sender: NSMenuItem) {
