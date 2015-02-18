@@ -226,9 +226,9 @@
 			productReference = 59B080BF1A935BBD00CB57ED /* ParrotZik.app */;
 			productType = "com.apple.product-type.application";
 		};
-		59F2ED4D1A94C7DE002CBB32 /* ParrotZikCli */ = {
+		59F2ED4D1A94C7DE002CBB32 /* CliTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 59F2ED521A94C7DE002CBB32 /* Build configuration list for PBXNativeTarget "ParrotZikCli" */;
+			buildConfigurationList = 59F2ED521A94C7DE002CBB32 /* Build configuration list for PBXNativeTarget "CliTest" */;
 			buildPhases = (
 				59F2ED4A1A94C7DE002CBB32 /* Sources */,
 				59F2ED4B1A94C7DE002CBB32 /* Frameworks */,
@@ -238,7 +238,7 @@
 			);
 			dependencies = (
 			);
-			name = ParrotZikCli;
+			name = CliTest;
 			productName = ParrotZikCli;
 			productReference = 59F2ED4E1A94C7DE002CBB32 /* ParrotZikCli */;
 			productType = "com.apple.product-type.tool";
@@ -274,7 +274,7 @@
 			projectRoot = "";
 			targets = (
 				59B080BE1A935BBD00CB57ED /* ParrotZik */,
-				59F2ED4D1A94C7DE002CBB32 /* ParrotZikCli */,
+				59F2ED4D1A94C7DE002CBB32 /* CliTest */,
 			);
 		};
 /* End PBXProject section */
@@ -471,7 +471,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		59F2ED521A94C7DE002CBB32 /* Build configuration list for PBXNativeTarget "ParrotZikCli" */ = {
+		59F2ED521A94C7DE002CBB32 /* Build configuration list for PBXNativeTarget "CliTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				59F2ED531A94C7DE002CBB32 /* Debug */,
