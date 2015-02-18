@@ -1,5 +1,5 @@
 //
-//  ANCItem.swift
+//  PhoneANCItem.swift
 //  ParrotZik
 //
 //  Created by Внештатный командир земли on 18/02/15.
@@ -8,13 +8,13 @@
 
 import Cocoa
 
-class ANCItem: StateItem {
-    var apiGet:String = "/api/audio/noise_cancellation/enabled/get"
-    var apiSet:String = "/api/audio/noise_cancellation/enabled"
+class PhoneANCItem: StateItem {
+    var apiGet:String = "/api/system/anc_phone_mode/enabled/get"
+    var apiSet:String = "/api/system/anc_phone_mode/enabled"
     var _inSetMode = false
-    var path: String = "/answer/audio/noise_cancellation/@enabled"
+    var path: String = "/answer/system/anc_phone_mode/@enabled"
     var value: String? = nil
-    var label: String = "ANC"
+    var label: String = "Phone ANC"
     
     var menuItems: (val: NSMenuItem, sep: NSMenuItem) = (
         val: NSMenuItem(title: "", action: "stateMenuItemClick:", keyEquivalent: ""),
@@ -27,7 +27,7 @@ class ANCItem: StateItem {
     }
     
     func getDebugName() -> String {
-        return "AncItem"
+        return "PhoneANCItem"
     }
     
     func getMenuItems() -> [NSMenuItem] {
@@ -39,7 +39,7 @@ class ANCItem: StateItem {
         }
         return [
             self.menuItems.val
-//            ,self.menuItems.sep
+            ,self.menuItems.sep
         ]
     }
     
@@ -103,3 +103,4 @@ class ANCItem: StateItem {
         return false
     }
 }
+
