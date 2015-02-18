@@ -127,6 +127,8 @@ class BatteryItem: StateItem {
                 }
             } else if self.values.state == "charging" {
                 item.title = "AC"
+            } else {
+                item.title = "100%"
             }
         }
     }
