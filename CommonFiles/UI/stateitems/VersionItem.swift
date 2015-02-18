@@ -1,43 +1,44 @@
 //
-//  NameItem.swift
+//  VersionItem.swift
 //  ParrotZik
 //
-//  Created by Внештатный командир земли on 17/02/15.
+//  Created by Внештатный командир земли on 18/02/15.
 //  Copyright (c) 2015 Внештатный командир земли. All rights reserved.
 //
 
+
 import Cocoa
 
-class NameItem: StateItem {
-    var apiGet:String = "/api/bluetooth/friendlyname/get"
-    var path: String = "/answer/bluetooth/@friendlyname"
+class VersionItem: StateItem {
+    var apiGet:String = "/api/software/version/get"
+    var path: String = "/answer/software/@version"
     var value: String? = nil
-    var label: String = "Name"
+    var label: String = "Version"
     
-    var menuItems: (name: NSMenuItem, sep: NSMenuItem) = (
-        name: NSMenuItem(title: "", action: "", keyEquivalent: ""),
+    var menuItems: (val: NSMenuItem, sep: NSMenuItem) = (
+        val: NSMenuItem(title: "", action: "", keyEquivalent: ""),
         sep: NSMenuItem.separatorItem()
     )
-
+    
     init() {
-        self.menuItems.name.title = self.label
+        self.menuItems.val.title = self.label
         self.formatLabel()
     }
     
     func getDebugName() -> String {
-        return "NameItem"
+        return "VersionItem"
     }
     
     func getMenuItems() -> [NSMenuItem] {
-        if self.menuItems.name.menu != nil {
-            self.menuItems.name.menu?.removeItem(self.menuItems.name)
+        if self.menuItems.val.menu != nil {
+            self.menuItems.val.menu?.removeItem(self.menuItems.val)
         }
         if self.menuItems.sep.menu != nil {
             self.menuItems.sep.menu?.removeItem(self.menuItems.sep)
         }
         return [
-            self.menuItems.name
-//            ,self.menuItems.sep
+            self.menuItems.val,
+            self.menuItems.sep
         ]
     }
     
@@ -46,11 +47,12 @@ class NameItem: StateItem {
         self.formatLabel()
     }
     func hide() {
-        self.menuItems.name.hidden = true
+        self.menuItems.val.hidden = true
         self.menuItems.sep.hidden = true
     }
     func show() {
-        self.menuItems.name.hidden = false
+        
+        self.menuItems.val.hidden = false
         self.menuItems.sep.hidden = false
     }
     
@@ -71,7 +73,7 @@ class NameItem: StateItem {
             self.hide()
         } else {
             self.show()
-            self.menuItems.name.title = self.label + ": " + self.value!
+            self.menuItems.val.title = self.label + ": " + self.value!
         }
     }
 }

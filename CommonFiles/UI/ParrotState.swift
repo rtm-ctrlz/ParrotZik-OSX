@@ -11,6 +11,7 @@ import Cocoa
 class ParrotState {
     var bat: BatteryItem = BatteryItem()
     var nam: NameItem = NameItem()
+    var ver: VersionItem = VersionItem()
     var item: NSStatusItem
     
     var req:ParrotRequestor? = nil
@@ -32,6 +33,7 @@ class ParrotState {
         var result: [NSMenuItem] = [NSMenuItem]()
         result.extend(self.bat.getMenuItems())
         result.extend(self.nam.getMenuItems())
+        result.extend(self.ver.getMenuItems())
         return result
     }
     
@@ -41,12 +43,15 @@ class ParrotState {
         }
         self.bat.clear()
         self.nam.clear()
+        self.ver.clear()
         self.req!.pushItem(self.bat)
         self.req!.pushItem(self.nam)
+        self.req!.pushItem(self.ver)
     }
     func onDisconnect() {
         self.bat.clear()
         self.nam.clear()
+        self.ver.clear()
         self.req!.clean()
     }
     

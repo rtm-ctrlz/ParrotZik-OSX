@@ -33,6 +33,7 @@
 		59F2EDB01A94CA94002CBB32 /* ParrotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2ED881A94CA67002CBB32 /* ParrotResponse.swift */; };
 		59F2EDC71A94D609002CBB32 /* StateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2EDC61A94D609002CBB32 /* StateItem.swift */; };
 		59F2EDC91A94D61B002CBB32 /* NameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2EDC81A94D61B002CBB32 /* NameItem.swift */; };
+		59F2EDCB1A94D7E4002CBB32 /* VersionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F2EDCA1A94D7E4002CBB32 /* VersionItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +70,7 @@
 		59F2ED8F1A94CA67002CBB32 /* BatteryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryItem.swift; sourceTree = "<group>"; };
 		59F2EDC61A94D609002CBB32 /* StateItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateItem.swift; sourceTree = "<group>"; };
 		59F2EDC81A94D61B002CBB32 /* NameItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameItem.swift; sourceTree = "<group>"; };
+		59F2EDCA1A94D7E4002CBB32 /* VersionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				59F2ED8F1A94CA67002CBB32 /* BatteryItem.swift */,
 				59F2EDC61A94D609002CBB32 /* StateItem.swift */,
 				59F2EDC81A94D61B002CBB32 /* NameItem.swift */,
+				59F2EDCA1A94D7E4002CBB32 /* VersionItem.swift */,
 			);
 			path = stateitems;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59F2EDC91A94D61B002CBB32 /* NameItem.swift in Sources */,
+				59F2EDCB1A94D7E4002CBB32 /* VersionItem.swift in Sources */,
 				59F2ED9C1A94CA86002CBB32 /* ParrotChannel.swift in Sources */,
 				59F2ED9D1A94CA86002CBB32 /* ParrotCommunicator.swift in Sources */,
 				59F2ED9E1A94CA86002CBB32 /* ParrotDataHandler.swift in Sources */,
