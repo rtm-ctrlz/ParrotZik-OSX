@@ -10,10 +10,12 @@ import Cocoa
 
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSUserNotificationCenterDelegate {
     
     @IBOutlet var statusMenu: NSMenu!
     var statusItem: NSStatusItem
+    
+    var readyForNotifications: Bool = false
     
     lazy var pstate: ParrotState = ParrotState(item: self.statusItem)
     lazy var con: ParrotConnection = ParrotConnection(state: self.pstate, statusUp: self.updateStatusItem)
@@ -30,6 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     func applicationDidFinishLaunching(aNotification: NSNotification?) {
 
         self.updateStatusItem()
+        self.readyForNotifications = true
         
         self.statusItem.menu!.removeAllItems()
         for i in self.pstate.getMenuItems() {
@@ -48,10 +51,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
     func updateStatusItem() {
         if self.con.isConnected {
             self.pstate.updateStatusItem(self.statusItem)
+            self.showNotificationConnected()
         } else if self.con.isConnecting {
             self.statusItem.title = "Connecting..."
         } else {
             self.statusItem.title = ""
+            self.showNotificationDisconnected()
         }
         self.statusItem.length = CGFloat(0)
         if self.statusItem.title != "" {
@@ -80,6 +85,34 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         self.pstate.forwardMenuItemClick(sender)
     }
     
+    func sendNotification(title:String, subtitle:String) -> NSUserNotification? {
+        if !self.readyForNotifications {
+            return nil
+        }
+        var notification:NSUserNotification = NSUserNotification()
+        notification.title = title
+        notification.subtitle = subtitle
+        
+        notification.soundName = NSUserNotificationDefaultSoundName
+        
+        notification.deliveryDate = NSDate()
+        
+        var notificationcenter:NSUserNotificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter()
+        notificationcenter.delegate = self
+        
+        notificationcenter.scheduleNotification(notification)
+        return notification
+    }
+    func showNotificationDisconnected() {
+        self.sendNotification("Parrot Zik", subtitle: "disconnected")
+    }
+    func showNotificationConnected() {
+        self.sendNotification("Parrot Zik", subtitle: "connected")
+    }
+    
+    func userNotificationCenter(center: NSUserNotificationCenter, shouldPresentNotification notification: NSUserNotification) -> Bool {
+        return true
+    }
     
     
 }

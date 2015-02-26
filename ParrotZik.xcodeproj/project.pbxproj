@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		597A993E1A9F30FA000BB90E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 597A993D1A9F30FA000BB90E /* Images.xcassets */; };
 		5999C4521A94DE8C009EB28E /* ANCItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5999C4511A94DE8C009EB28E /* ANCItem.swift */; };
 		5999C4561A94E662009EB28E /* PhoneANCItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5999C4551A94E662009EB28E /* PhoneANCItem.swift */; };
 		5999C4581A94E75B009EB28E /* SwitcherItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5999C4571A94E75B009EB28E /* SwitcherItem.swift */; };
@@ -53,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		597A993D1A9F30FA000BB90E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5999C4511A94DE8C009EB28E /* ANCItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ANCItem.swift; sourceTree = "<group>"; };
 		5999C4551A94E662009EB28E /* PhoneANCItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneANCItem.swift; sourceTree = "<group>"; };
 		5999C4571A94E75B009EB28E /* SwitcherItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitcherItem.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				59B080C41A935BBD00CB57ED /* AppDelegate.swift */,
+				597A993D1A9F30FA000BB90E /* Images.xcassets */,
 				59B080C21A935BBD00CB57ED /* Supporting Files */,
 			);
 			path = ParrotZik;
@@ -321,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				597A993E1A9F30FA000BB90E /* Images.xcassets in Resources */,
 				59F2ECCB1A94B63F002CBB32 /* zik-audio-headset.png in Resources */,
 				59B0810A1A935EA500CB57ED /* StatusMenu.xib in Resources */,
 			);
@@ -460,7 +464,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ParrotZik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ParrotZik;
 			};
 			name = Debug;
 		};
@@ -472,7 +476,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ParrotZik/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ParrotZik;
 			};
 			name = Release;
 		};
