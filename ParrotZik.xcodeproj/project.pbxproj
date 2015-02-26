@@ -256,6 +256,7 @@
 				59B080BB1A935BBD00CB57ED /* Sources */,
 				59B080BC1A935BBD00CB57ED /* Frameworks */,
 				59B080BD1A935BBD00CB57ED /* Resources */,
+				59E17E8E1A9F3C93008AF6DC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -331,6 +332,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59E17E8E1A9F3C93008AF6DC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\n# simple increment\n#buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n#buildNumber=$(($buildNumber + 1))\n\n# git hash\nbuildNumber=$(git log --format=\"%H\" -n 1)\n\n# update value in plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		59B080BB1A935BBD00CB57ED /* Sources */ = {
