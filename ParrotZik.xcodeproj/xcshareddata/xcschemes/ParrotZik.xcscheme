@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "0610"
+   version = "1.7">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "">
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "59B080BE1A935BBD00CB57ED"
+               BuildableName = "ParrotZik.app"
+               BlueprintName = "ParrotZik"
+               ReferencedContainer = "container:ParrotZik.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
+      <Testables>
+      </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "59B080BE1A935BBD00CB57ED"
+            BuildableName = "ParrotZik.app"
+            BlueprintName = "ParrotZik"
+            ReferencedContainer = "container:ParrotZik.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+   </TestAction>
+   <LaunchAction
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "59B080BE1A935BBD00CB57ED"
+            BuildableName = "ParrotZik.app"
+            BlueprintName = "ParrotZik"
+            ReferencedContainer = "container:ParrotZik.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+      <AdditionalOptions>
+      </AdditionalOptions>
+   </LaunchAction>
+   <ProfileAction
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "59B080BE1A935BBD00CB57ED"
+            BuildableName = "ParrotZik.app"
+            BlueprintName = "ParrotZik"
+            ReferencedContainer = "container:ParrotZik.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release"
+      revealArchiveInOrganizer = "NO">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "DMG_PATH=&quot;${PROJECT_DIR}/${TARGET_NAME}.dmg&quot;&#10;&#10;TMP_DMG_PATH=&quot;${TMPDIR}/pack.temp.dmg&quot;&#10;rm -f &quot;${TMP_DMG_PATH}&quot;&#10;hdiutil create -srcfolder &quot;${ARCHIVE_PRODUCTS_PATH}/${INSTALL_PATH}&quot; -volname &quot;${TARGET_NAME}&quot; -fs HFS+ -fsargs &quot;-c c=64,a=16,e=16&quot; -format UDRW -size 20m &quot;${TMP_DMG_PATH}&quot;&#10;&#10;ATTACED_DEVICE=$(hdiutil attach -readwrite -noverify -noautoopen &quot;${TMP_DMG_PATH}&quot; | egrep &apos;^/dev/&apos; | sed 1q | awk &apos;{print $1}&apos;)&#10;&#10;# removing trashes (using Administrator privileges)&#10;echo &apos;do shell script &quot;&apos;&quot;rm -rf &apos;/Volumes/${TARGET_NAME}/.Trashes&apos; &apos;/Volumes/${TARGET_NAME}/.fseventsd&apos;&quot;&apos;&quot; with administrator privileges&apos; | osascript&#10;&#10;# hello to asepsisctl useres =)&#10;if [ -f &quot;/usr/local/.dscage/Volumes/${TARGET_NAME}/_DS_Store&quot; ]; then&#10;mv &quot;/usr/local/.dscage/Volumes/${TARGET_NAME}/_DS_Store&quot; &quot;/Volumes/${TARGET_NAME}/.DS_Store&quot;&#10;fi&#10;&#10;# copy background&#10;cp &quot;${PROJECT_DIR}/dmgbuild/background.png&quot; &quot;/Volumes/${TARGET_NAME}/.back.png&quot;&#10;&#10;# set up window&#10;echo &apos;&#10;    tell application &quot;Finder&quot;&#10;        tell disk &quot;&apos;${TARGET_NAME}&apos;&quot;&#10;            open&#10;            set current view of container window to icon view&#10;            set toolbar visible of container window to false&#10;            set statusbar visible of container window to false&#10;            set the bounds of container window to {400, 100, 845, 630}&#10;            set theViewOptions to the icon view options of container window&#10;            set arrangement of theViewOptions to not arranged&#10;            set icon size of theViewOptions to 72&#10;            make new alias file at container window to POSIX file &quot;/Applications&quot; with properties {name:&quot;Applications&quot;}&#10;            set background picture of theViewOptions to file &quot;.back.png&quot;&#10;            set file_list to every file&#10;            repeat with i in file_list&#10;                if the name of i is &quot;Applications&quot; then&#10;                    set the position of i to {355, 350}&#10;                else if the name of i ends with &quot;.app&quot; then&#10;                    set the position of i to {100, 350}&#10;                else&#10;                    set the position of i to {100, 1000}&#10;                end if&#10;            end repeat&#10;            update without registering applications&#10;            delay 5&#10;            close&#10;        end tell&#10;    end tell&#10;&apos; | osascript&#10;&#10;# finishing and resizing&#10;chmod -Rf go-w /Volumes/&quot;${TARGET_NAME}&quot;&#10;sync&#10;sync&#10;hdiutil detach &quot;${ATTACED_DEVICE}&quot;&#10;rm &quot;${DMG_PATH}&quot;&#10;hdiutil convert &quot;${TMP_DMG_PATH}&quot; -format UDZO -imagekey zlib-level=9 -o &quot;${DMG_PATH}&quot;&#10;rm -f &quot;${TMP_DMG_PATH}&quot;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "59B080BE1A935BBD00CB57ED"
+                     BuildableName = "ParrotZik.app"
+                     BlueprintName = "ParrotZik"
+                     ReferencedContainer = "container:ParrotZik.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
+   </ArchiveAction>
+</Scheme>
