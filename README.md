@@ -10,6 +10,12 @@ Other reasons:
   - to try swift
   - etc.
 
+# Downloads
+Latest build could be found [here](https://github.com/rtm-ctrlz/ParrotZik-OSX/releases/latest).
+
+For other builds see [releases section](https://github.com/rtm-ctrlz/ParrotZik-OSX/releases).
+
+
 # How to build
  * clone repo
  * open project (ParrotZik.xcodeproj) in Xcode
