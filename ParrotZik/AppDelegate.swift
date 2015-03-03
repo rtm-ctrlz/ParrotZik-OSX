@@ -93,8 +93,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate, NSUserNotifi
         notification.title = title
         notification.subtitle = subtitle
         
-        notification.soundName = NSUserNotificationDefaultSoundName
-        
         notification.deliveryDate = NSDate()
         
         var notificationcenter:NSUserNotificationCenter = NSUserNotificationCenter.defaultUserNotificationCenter()
